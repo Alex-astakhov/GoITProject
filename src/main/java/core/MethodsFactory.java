@@ -16,6 +16,8 @@ import java.nio.file.Paths;
  * Created by Alex Astakhov on 21.05.2016.
  */
 public class MethodsFactory {
+
+    public static ThreadLocal<WebDriver> DRIVER = new ThreadLocal<>();
     public WebDriver driver;
 
     @Step("Type to {1} field {0}")
@@ -30,7 +32,17 @@ public class MethodsFactory {
         w.sendKeys(s);
     }
 
-    public static void waitForElementIsClicable(By element){
+    public static WebDriver driver(){
+        return DRIVER.get();
+    }
+
+    public void get(String url){
+        driver().get(url);
+    }
+
+
+
+    /*public static void waitForElementIsClicable(By element){
         WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
@@ -76,9 +88,9 @@ public class MethodsFactory {
 
     @Step("Choose {1} from drop down list {0}")
     public void chooseFromDropList(By list, String value){
-        /*driver.findElement(list).click();
+        *//*driver.findElement(list).click();
         waitUntilElementIsVisible(value, 3);
-        driver.findElement(value).click();*/
+        driver.findElement(value).click();*//*
         Select select = new Select(driver.findElement(list));
         select.selectByValue(value);
     }
@@ -98,5 +110,5 @@ public class MethodsFactory {
             e.printStackTrace();
         }
         return new byte[0];
-    }
+    }*/
 }
