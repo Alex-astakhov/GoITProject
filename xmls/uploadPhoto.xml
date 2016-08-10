@@ -3,12 +3,7 @@
 <suite name="Default Suite" parallel="tests">
   <test name="test1">
     <classes>
-      <class name="tests.ParallelTestTry"/>
-    </classes>
-  </test>
-  <test name="test2">
-    <classes>
-      <class name="tests.ParallelTestTry"/>
+      <class name="mobile.UploadPhoto"/>
     </classes>
   </test>
 </suite>

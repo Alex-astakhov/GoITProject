@@ -22,14 +22,18 @@ public class MethodsFactory {
 
     @Step("Type to {1} field {0}")
     public void type(By locator, String s){
-        driver.findElement(locator).clear();
-        driver.findElement(locator).sendKeys(s);
+        driver().findElement(locator).clear();
+        driver().findElement(locator).sendKeys(s);
     }
 
     @Step("Type to {1} field {0}")
     public void type(WebElement w, String s){
         w.clear();
         w.sendKeys(s);
+    }
+
+    public void click(By by){
+        driver().findElement(by).click();
     }
 
     public static WebDriver driver(){

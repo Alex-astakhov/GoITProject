@@ -19,17 +19,11 @@ public class BrowserFactory extends MethodsFactory {
 
     @BeforeTest
     @Parameters({"browser"})
-    public void setupUp(@Optional("chrome") String browser) {
+    public void setupUp(@Optional("CH") String browser) {
         switch (browser){
-            case "chrome":
-                driver = new MyChrome().getDriver();
-                break;
-            case "chromeMobile":
-                driver = new ChromeMobile().getDriver();
-                break;
-            case "firefox":
-                driver = new MyFireFox().getDriver();
-                break;
+            case "CH": driver = new MyChrome().getDriver(); break;
+            case "CHM": driver = new ChromeMobile().getDriver(); break;
+            case "FF": driver = new MyFireFox().getDriver(); break;
         }
 
         driver.manage().window().maximize();            // максимизация окна
